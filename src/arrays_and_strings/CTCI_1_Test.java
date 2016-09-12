@@ -56,10 +56,9 @@ public class CTCI_1_Test {
 	public void rotate90Test() {
 		int[][] input1 = { { 1 } };
 		CTCI_1_7.rotate90(input1, input1.length);
-		int[][] output1 = { { 1 } };
 
 		for (int i = 0; i < input1.length; i++) {
-			assertArrayEquals(input1[i], output1[i]);
+			assertArrayEquals(input1[i], input1[i]);
 		}
 
 		int[][] input2 = { { 0, 1, 2, 3 }, { 4, 5, 6, 7 }, { 8, 9, 10, 11 }, { 12, 13, 14, 15 } };
@@ -77,5 +76,30 @@ public class CTCI_1_Test {
 		for (int i = 0; i < input3.length; i++) {
 			assertArrayEquals(input3[i], output3[i]);
 		}
+	}
+
+	@Test
+	public void zeroMatrixTest() {
+		int[][] input1 = { { 1, 2 }, { 3, 4 } };
+
+		CTCI_1_8.zeroMatrix(input1);
+		for (int i = 0; i < input1.length; i++) {
+			assertArrayEquals(input1[i], input1[i]);
+		}
+
+		int[][] input2 = { { 0, 1, 2, 3 }, { 4, 5, 6, 7 }, { 8, 9, 0, 11 }, { 12, 13, 14, 15 } };
+		CTCI_1_8.zeroMatrix(input2);
+		int[][] output2 = { { 0, 0, 0, 0 }, { 0, 5, 0, 7 }, { 0, 0, 0, 0 }, { 0, 13, 0, 15 } };
+
+		for (int i = 0; i < input2.length; i++) {
+			assertArrayEquals(input2[i], output2[i]);
+		}
+	}
+
+	@Test
+	public void stringRotationTest() {
+		assertTrue(CTCI_1_9.stringRotation("waterbottle", "erbottlewat"));
+		assertTrue(CTCI_1_9.stringRotation("waterbottle", "ewaterbottl"));
+		assertFalse(CTCI_1_9.stringRotation("helloworld", "wolrdhello"));
 	}
 }
