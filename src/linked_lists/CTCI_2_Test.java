@@ -1,6 +1,7 @@
 package linked_lists;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -73,5 +74,31 @@ public class CTCI_2_Test {
 		assertEquals(CTCI_2_2.kthToLast(head, 2), 2);
 		assertEquals(CTCI_2_2.kthToLast(head, 5), 7);
 		assertEquals(CTCI_2_2.kthToLast(head, 6), 3);
+	}
+
+	@Test
+	public void deleteMiddle() {
+		Node<Integer> head = new Node<Integer>(3);
+		Node<Integer> n1 = new Node<Integer>(7);
+		Node<Integer> n2 = new Node<Integer>(2);
+		Node<Integer> n3 = new Node<Integer>(4);
+		Node<Integer> n4 = new Node<Integer>(2);
+		Node<Integer> n5 = new Node<Integer>(5);
+
+		head.next = n1;
+		n1.next = n2;
+		n2.next = n3;
+		n3.next = n4;
+		n4.next = n5;
+
+		assertTrue(CTCI_2_3.deleteMiddle(n3));
+		int[] output = { 3, 7, 2, 2, 5 };
+		int i = 0;
+
+		while (head != null) {
+			assertEquals((int) head.data, output[i]);
+			head = head.next;
+			i++;
+		}
 	}
 }

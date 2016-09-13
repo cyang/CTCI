@@ -10,14 +10,16 @@ public class CTCI_2_4 {
 		head.next.next = new Node<Integer>(10);
 		head.next.next.next = new Node<Integer>(1);
 
-		Node partitioned = partition(head, 9);
+		Node<Integer> partitioned = partition(head, 9);
 	}
 
-	public static Node partition(Node<Integer> head, int x) {
-		Node beforeHead = null;
-		Node beforeTail = null;
-		Node afterHead = null;
-		Node afterTail = null;
+	// All nodes less than a node greater than or equal to x must appear on the
+	// left partition
+	public static Node<Integer> partition(Node<Integer> head, int x) {
+		Node<Integer> beforeHead = null;
+		Node<Integer> beforeTail = null;
+		Node<Integer> afterHead = null;
+		Node<Integer> afterTail = null;
 
 		while (head != null) {
 			Node<Integer> next = head.next;
