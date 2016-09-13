@@ -3,7 +3,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class CTCI_9Test {
+public class CTCI_9_Test {
 	@Test
 	public void test1() {
 		assertEquals(CTCI_9_1.countWays(1), 1);
